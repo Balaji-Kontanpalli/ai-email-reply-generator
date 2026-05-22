@@ -1,0 +1,18 @@
+# Spring Boot
+email-writer-sb/target/
+email-writer-sb/.idea/
+email-writer-sb/*.iml
+email-writer-sb/mvnw
+email-writer-sb/mvnw.cmd
+
+# React
+email-writer-react/node_modules/
+email-writer-react/dist/
+
+# Environment / secrets
+*.env
+application-local.properties
+
+# OS
+.DS_Store
+Thumbs.db
