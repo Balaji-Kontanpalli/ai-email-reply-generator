@@ -1,9 +1,7 @@
 services:
 
   backend:
-    build:
-      context: ./email-writer-sb
-      dockerfile: Dockerfile
+    image: balajikontanpalli/email-writer-backend:latest
     container_name: email-writer-backend
     ports:
       - "8080:8080"
@@ -14,9 +12,7 @@ services:
       - email-writer-network
 
   frontend:
-    build:
-      context: ./email-writer-react
-      dockerfile: Dockerfile
+    image: balajikontanpalli/email-writer-frontend:latest
     container_name: email-writer-frontend
     ports:
       - "80:80"
