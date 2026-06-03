@@ -45,7 +45,8 @@ public class EmailGeneratorService {
 
 		try {
 		    response = webClient.post()
-		            .uri(geminiApiUrl + geminiApiKey)
+		    		// CORRECT - key is a separate query param
+		    		.uri(geminiApiUrl + "?key=" + geminiApiKey)
 		            .header("Content-Type", "application/json")
 		            .bodyValue(requestBody)
 		            .retrieve()

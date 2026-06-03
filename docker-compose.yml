@@ -1,0 +1,30 @@
+services:
+
+  backend:
+    build:
+      context: ./email-writer-sb
+      dockerfile: Dockerfile
+    container_name: email-writer-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - GEMINI_API_URL=${GEMINI_API_URL}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    networks:
+      - email-writer-network
+
+  frontend:
+    build:
+      context: ./email-writer-react
+      dockerfile: Dockerfile
+    container_name: email-writer-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - email-writer-network
+
+networks:
+  email-writer-network:
+    driver: bridge
