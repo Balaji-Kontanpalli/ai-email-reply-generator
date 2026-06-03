@@ -12,7 +12,11 @@ services:
       - email-writer-network
 
   frontend:
-    image: balajikontanpalli/email-writer-frontend:latest
+    build:
+      context: ./email-writer-react
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:8080
     container_name: email-writer-frontend
     ports:
       - "80:80"
